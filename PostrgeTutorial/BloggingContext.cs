@@ -8,6 +8,7 @@ namespace ConsoleApp.PostgreSQL
     {
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<City> Cities { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
             => builder.UseNpgsql("Host=localhost;Database=blogs;Username=admin;Password=Password1?",
@@ -34,6 +35,8 @@ namespace ConsoleApp.PostgreSQL
         public string Url { get; set; }
         public List<Post> Posts { get; set; }
         public string Name { get; set; }
+        public int? PersonId { get; set; }
+        public Person Person { get; set; }
     }
 
     public class Post
@@ -45,8 +48,9 @@ namespace ConsoleApp.PostgreSQL
         public string Title { get; set; }
     }
 
-    public class Author
+    public class Person
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public int CityId { get; set; }
         public City City { get; set; }
