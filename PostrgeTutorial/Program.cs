@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using ConsoleApp.PostgreSQL;
 using Microsoft.EntityFrameworkCore;
-using Npgsql;
 
 namespace PostrgeTutorial
 {

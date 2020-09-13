@@ -25,7 +25,6 @@ namespace ConsoleApp.PostgreSQL
             // Set column type geography:
             builder.Entity<City>().Property(c => c.Location).HasColumnType("geography (point)");
             builder.Entity<City>().HasIndex(c => c.Name);
-            builder.Entity<City>().HasIndex(c => c.Location);
         }
     }
 
