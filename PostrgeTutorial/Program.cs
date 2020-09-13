@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using ConsoleApp.PostgreSQL;
+using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace PostrgeTutorial
 {
@@ -12,7 +14,7 @@ namespace PostrgeTutorial
             try
             {
                 using var ctx = new BloggingContext();
-                var firstBlog = ctx.Blogs.FirstOrDefault();
+                var firstBlog = ctx.Blogs.Include(b => b.Posts).FirstOrDefault();
                 if (firstBlog == null)
                 {
                     var seedBlog = new Blog { Name = "Dmitry", Url = "dmitry.livejournal.com" };
