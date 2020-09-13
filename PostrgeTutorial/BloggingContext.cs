@@ -14,6 +14,7 @@ namespace ConsoleApp.PostgreSQL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Blog>().HasIndex(b => b.Name);
+            modelBuilder.Entity<Blog>().HasIndex(b => b.Url);
             modelBuilder.Entity<Post>().HasIndex(b => b.Title);
         }
     }
